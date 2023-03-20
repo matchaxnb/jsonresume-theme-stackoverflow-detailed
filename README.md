@@ -1,9 +1,6 @@
-# Stack Overflow theme for jsonresume [![npm version](https://badge.fury.io/js/jsonresume-theme-stackoverflow.svg)](http://badge.fury.io/js/jsonresume-theme-stackoverflow)
+# Stack Overflow Detailed theme for jsonresume [![npm version](https://badge.fury.io/js/jsonresume-theme-stackoverflow.svg)](http://badge.fury.io/js/jsonresume-theme-stackoverflow-detailed)
 
-**Printable version with custom CSS**
-
-[DEMO](https://themes.jsonresume.org/theme/stackoverflow)
-
+Derivative of [jsonresume-theme-stackoverflow](https://github.com/phoinixi/jsonresume-theme-stackoverflow)
 ## Getting started
 
 ### Install the command line
@@ -23,7 +20,7 @@ npm install -g resume-cli
 Clone the repository
 
 ```
-git clone https://github.com/francescoes/jsonresume-theme-stackoverflow.git
+git clone https://github.com/matchaxnb/jsonresume-theme-stackoverflow-detailed.git
 ```
 
 Create a 'resume.json' file in the current folder and follow the [json resume schema](https://jsonresume.org/schema/)
@@ -44,9 +41,9 @@ github, stack-overflow, linkedin, dribbble, twitter, facebook, pinterest, instag
 
 To have a social icon close the social link profile (or username) it is enough to set a `network` the name of the Social Network (es: 'Stack Overflow'). I am replacing spaces with dashes (`-`) and transforming all the network name to all lowercase to match the Font awesome naming convention for brands icons.
 
-#### Support to extra fields
+#### Support for extra fields
 
-With stackoverflow theme it is possible to add:
+With the stackoverflow theme it is possible to add:
 
 - `keywords` to each 'work', 'publication' and 'volunteer' item
 - `summary` to each 'interests' and 'education' item
@@ -62,6 +59,18 @@ example of the extra `birth` object:
 }
 ```
 
+This detailed theme adds a `details` field to each 'skills' item. This allows you to enter a list of details of where you used that skill.
+You may also specify `subskills` in each 'skills' item that take `name` and `level` properties, allowing to specify mastership more granularly.
+
+This detailed theme also adds a `more_info` field to 'basics' that you may set to redirect to another version of the resume, more complete.
+#### Supported mastery levels
+
+The following levels are supported:
+
+- `beginner` = `basic` (will show in blue)
+- `intermediate` (will show in orange)
+- `advanced` = `fluent` = `fully proficient` (will show in darker green)
+- `master` = `native speaker` = `expert` = `bilingual` (will show in lighter green)
 ## Contribution
 
 Fork the project, add your feature (or fix your bug) and open a pull request OR

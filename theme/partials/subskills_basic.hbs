@@ -1,0 +1,15 @@
+{{#if name}}
+  <h4 class="name">
+    {{name}}
+  </h4>
+{{/if}}
+{{#if level}}
+  <div class="level {{toLowerCase level}}">
+    {{#if levelDisplay}}
+      <em>{{levelDisplay}}</em>
+    {{else}}
+      <em>{{level}}</em>
+    {{/if}}
+  <div class="bar"></div>
+</div>
+{{/if}}

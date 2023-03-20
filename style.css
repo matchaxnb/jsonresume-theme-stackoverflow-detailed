@@ -506,8 +506,26 @@ section .location {
   width: 16em;
 }
 
+#skills .item.full-width {
+  width: 100%;
+}
 #skills .item .keywords {
   width: 15em;
+}
+
+#skills .full-width .skill-data {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+}
+
+#skills .full-width .skills-details {
+  width: 50%;
+}
+
+#skills .full-width .keywords {
+  width: 100%;
+  text-align: center;
 }
 
 /* Skill chart */
@@ -537,8 +555,9 @@ section .location {
   height: 5px;
 }
 
-.level.beginner .bar::after {
-  background: #eb5f51;
+.level.beginner .bar::after,
+.level.basic .bar::after {
+  background: #3b38df;
   width: 2.5em;
 }
 
@@ -548,12 +567,15 @@ section .location {
 }
 
 .level.advanced .bar::after,
+.level.fully.proficient .bar::after,
 .level.fluent .bar::after {
   background: #5cb85c;
   width: 7.5em;
 }
 
 .level.master .bar::after,
+.level.expert .bar::after,
+.level.bilingual .bar::after,
 .level.native.speaker .bar::after {
   background: #59c596;
   width: 10em;
