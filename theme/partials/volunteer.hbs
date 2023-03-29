@@ -13,20 +13,9 @@
       {{/if}}
 
       <header class="clear">
-         <div class="date">
-          {{#if startDate}}
-          <span class="startDate">
-            {{MY startDate}}
-          </span>
-          {{/if}}
-          {{#if endDate}}
-          <span class="endDate">
-            - {{MY endDate}}
-          </span>
-          {{else}}
-          <span class="endDate">
-            - Current
-          </span>
+        <div class="date">
+          {{#if (and startDate endDate)}}
+          <span class="rangeDate">{{DATESPANMY startDate endDate}}</span>
           {{/if}}
         </div>
         <div class="header-left">

@@ -9,16 +9,23 @@ const { dateHelpers } = require(join(HELPERS, 'date-helpers.js'));
 const { paragraphSplit } = require(join(HELPERS, 'paragraph-split.js'));
 const { toLowerCase } = require(join(HELPERS, 'to-lower-case.js'));
 const { spaceToDash } = require(join(HELPERS, 'space-to-dash.js'));
-
-const { MY, Y, DMY } = dateHelpers;
+const { operatorHelpers } = require(join(HELPERS, 'operators.js'));
+const { and, or } = operatorHelpers;
+const { MY, Y, DMY, DATESPANMY } = dateHelpers;
 
 Handlebars.registerHelper('birthDate', birthDate);
 Handlebars.registerHelper('MY', MY);
 Handlebars.registerHelper('Y', Y);
 Handlebars.registerHelper('DMY', DMY);
+
 Handlebars.registerHelper('paragraphSplit', paragraphSplit);
 Handlebars.registerHelper('toLowerCase', toLowerCase);
 Handlebars.registerHelper('spaceToDash', spaceToDash);
+
+// supplemental helpers
+Handlebars.registerHelper('and', and);
+Handlebars.registerHelper('or', or);
+Handlebars.registerHelper('DATESPANMY', DATESPANMY);
 
 function render(resume) {
   const css = readFileSync(`${__dirname}/style.css`, 'utf-8');
