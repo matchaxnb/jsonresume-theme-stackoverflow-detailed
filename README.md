@@ -41,7 +41,7 @@ github, stack-overflow, linkedin, dribbble, twitter, facebook, pinterest, instag
 
 To have a social icon close the social link profile (or username) it is enough to set a `network` the name of the Social Network (es: 'Stack Overflow'). I am replacing spaces with dashes (`-`) and transforming all the network name to all lowercase to match the Font awesome naming convention for brands icons.
 
-#### Support for extra fields
+### Support for extra fields
 
 With the stackoverflow theme it is possible to add:
 
@@ -63,7 +63,8 @@ This detailed theme adds a `details` field to each 'skills' item. This allows yo
 You may also specify `subskills` in each 'skills' item that take `name` and `level` properties, allowing to specify mastership more granularly.
 
 This detailed theme also adds a `more_info` field to 'basics' that you may set to redirect to another version of the resume, more complete.
-#### Supported mastery levels
+
+### Supported mastery levels
 
 The following levels are supported:
 
@@ -71,6 +72,35 @@ The following levels are supported:
 - `intermediate` (will show in orange)
 - `advanced` = `fluent` = `fully proficient` (will show in darker green)
 - `master` = `native speaker` = `expert` = `bilingual` (will show in lighter green)
+
+### Date helpers
+
+In order to better render date ranges, two helpers have been added and are in use in the templates.
+
+`RIGHTDATE` gives the properly accurate formatting of a date based on the input length:
+- 4 characters are parsed as just the year,
+- up to 7 characters are considered as year + month
+- more than 7 characters is a full date
+- providing "9999" as date causes the string "Continuous" to be returned, while "8999" returns "Current". If you need a date within these years, please provide them with more accuracy so they can be displayed.
+
+`DATESPANMY` takes the startDate and endDate parameters and does the following:
+- if both are undefined, the `undefined` value is returned
+- if one is undefined but not the other, then `RIGHTDATE(startDate || endDate)` is returned, to provide the most accurate representation of the provided date
+- if their string renderings are identical, only one occurence of that identical string is returned. i.e. if you pass it arguments "2022-01, 2022-01", the output will be "Feb 2022" and not "Feb 2022 - Feb 2022"
+- otherwise a string "RIGHTDATE(startDate) - RIGHTDATE(endDate)" with the most accurate date representations is issued. 
+
+Due to the way date precision is managed, it is advised to avoid specifying day of month in dates when it makes little sense semantically speaking.
+
+### Logical operators
+
+Two logical operators have been added: `and` and `or`. Example uses are visible in various templates, for example `education.hbs` uses it as follows:
+
+```hbs
+{{#if (and startDate endDate)}}
+<span class="rangeDate">{{DATESPANMY startDate endDate}}</span>
+{{/if}}
+```
+
 ## Contribution
 
 Fork the project, add your feature (or fix your bug) and open a pull request OR
