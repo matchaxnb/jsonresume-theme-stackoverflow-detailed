@@ -20,7 +20,6 @@ const dateHelpers = {
     return dateHelpers.DMY(date);
   },
   DATESPANMY: (date1, date2) => {
-    console.log("Foo", date1, date2);
     if (date1 === undefined && date2 === undefined) {
       return undefined;
     }
